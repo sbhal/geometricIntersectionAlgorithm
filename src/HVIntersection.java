@@ -8,11 +8,14 @@
  *  % java HVIntersection 1000
  *
  ******************************************************************************/
+import java.util.PriorityQueue;
+import java.util.Comparator;
 
 public class HVIntersection {
 
     // helper class for events in sweep line algorithm
     public static class Event implements Comparable<Event> {
+    //public static class Event {
         int time;
         SegmentHV segment;
 
@@ -27,7 +30,14 @@ public class HVIntersection {
             else                            return  0; 
         }
     }
-
+    //Comparator anonymous class implementation
+    public static Comparator<Event> idComparator = new Comparator<Event>(){
+         
+        @Override
+        public int compare(Event c1, Event c2) {
+            return (int) (c1.time - c2.time);
+        }
+    };
 
     // the sweep-line algorithm
     public static void main(String[] args) {
@@ -48,26 +58,34 @@ public class HVIntersection {
         System.out.println();
 
         // create events
-        MinPQ<Event> pq = new MinPQ<Event>();
+        //MinPQ<Event> pq = new MinPQ<Event>();
+        //PriorityQueue<Event> pq = new PriorityQueue<Event>(N, idComparator);
+        PriorityQueue<Event> pq = new PriorityQueue<Event>(N);
         for (int i = 0; i < N; i++) {
             if (segments[i].isVertical()) {
                 Event e = new Event(segments[i].x1, segments[i]);
-                pq.insert(e);
+                //pq.insert(e);
+                pq.add(e);
             }
             else if (segments[i].isHorizontal()) {
                 Event e1 = new Event(segments[i].x1, segments[i]);
                 Event e2 = new Event(segments[i].x2, segments[i]);
-                pq.insert(e1);
-                pq.insert(e2);
+                //pq.insert(e1);
+                //pq.insert(e2);
+                pq.add(e1);
+                pq.add(e2);
             }
         }
 
         // run sweep-line algorithm
         RangeSearch<SegmentHV, Integer> st = new RangeSearch<SegmentHV, Integer>();
 
-        while (!pq.isEmpty()) {
-            Event e = pq.delMin();
+        //while (!pq.isEmpty()) {
+        while (0 != pq.size()) {
+            //Event e = pq.delMin();
+        	Event e = pq.poll();
             int sweep = e.time;
+            System.out.print(sweep + " - ");
             SegmentHV segment = e.segment;
            
             // vertical segment
@@ -93,8 +111,5 @@ public class HVIntersection {
                 st.remove(segment);
             }
         }
-
-
     }
-
 }

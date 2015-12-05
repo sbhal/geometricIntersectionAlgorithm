@@ -45,6 +45,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
+import java.lang.Object;
 
 public class RangeSearch<Key extends Comparable<Key>, Value>  {
 
@@ -308,7 +309,6 @@ public class RangeSearch<Key extends Comparable<Key>, Value>  {
 	    		System.out.println(line);
 	    		st.put(line, N++);
 	    	}
-	     
 	    	br.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

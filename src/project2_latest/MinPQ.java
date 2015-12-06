@@ -1,3 +1,4 @@
+package project2_latest;
 /******************************************************************************
  *  Compilation:  javac MinPQ.java
  *  Execution:    java MinPQ < input.txt

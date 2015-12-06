@@ -1,3 +1,4 @@
+package project2_latest;
 /******************************************************************************
  *  Compilation:  javac Interval.java
  *  Execution:    java Interval

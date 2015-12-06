@@ -1,11 +1,4 @@
-/******************************************************************************
- *  Compilation:  javac SegmentHV.java
- *  Execution:    java SegmentHV
- *  
- *  Axis-aligned line segment (horizontal or vertical).
- *
- ******************************************************************************/
-
+package project2_latest;
 
 public class SegmentHV implements Comparable<SegmentHV> {
     public final int x1, y1;  // lower left
@@ -37,26 +30,31 @@ public class SegmentHV implements Comparable<SegmentHV> {
         else if (this.x2 > that.x2) return +1;
         return 0;
     }
+
+    // compare on y1 coordinate; break ties with other coordinates
+    public boolean doIntersect(SegmentHV that) {
+    	SegmentHV hor = this, ver= that;
+    	if (this.isHorizontal() == true){
+    		if(that.x1 != that.x2)
+    			return false;
+    		hor = this; ver = that;
+    	}
+    	if (this.isVertical() == true){
+    		if(that.y1 != that.y2)
+    			return false;
+    		ver = this; hor = that;
+    	}
+    	return ((hor.x1 <= ver.x1) &&
+    			(hor.x2 >= ver.x1) &&
+    			(hor.y1 <= ver.y2) &&
+    			(hor.y1 >= ver.y1));
+    }
         
     public String toString() {
         String s = "";
         if      (isHorizontal()) s = "horizontal: ";
         else if (isVertical())   s = "vertical:   ";
         return s + "(" + x1 + ", " + y1 + ") -> (" + x2 + ", " + y2 + ")";
-    }
-
-
-
-
-    // test client
-    public static void main(String[] args) {
-        SegmentHV a = new SegmentHV(15, 20, 15, 60);
-        SegmentHV b = new SegmentHV(10, 40, 35, 40);
-        SegmentHV c = new SegmentHV(10, 40, 35, 40);
-        System.out.println("a = " + a);
-        System.out.println("b = " + b);
-
-
     }
 
 }

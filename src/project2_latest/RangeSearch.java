@@ -1,42 +1,4 @@
-/******************************************************************************
- *  Compilation:  javac RangeSearch.java
- *  Execution:    java RangeSearch < words.txt
- *  
- *  Range search implemented using a randomized BST.
- *  
- *  % java RangeSearch < words.txt
- *  height:          33
- *  size:            20068
- *  min key:         a
- *  max key:         zygote
- *  integrity check: true
- *
- * [kevin, kfg]
- *  key
- *  keyboard
- *  keyed
- *  keyhole
- *  keynote
- *  keypunch
- *  keys
- *  keystone
- *  keyword
- *
- *  [paste, pasty]
- *  paste
- *  pasteboard
- *  pastel
- *  pasteup
- *  pastiche
- *  pastime
- *  pastor
- *  pastoral
- *  pastry
- *  pasture
- *  pasty
- * 
- ******************************************************************************/
-
+package project2_latest;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.io.BufferedReader;
@@ -314,13 +276,7 @@ public class RangeSearch<Key extends Comparable<Key>, Value>  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}     
-    
-/*    	
-    	while (!StdIn.isEmpty()) {
-            String s = StdIn.readString();
-            st.put(s, N++);
-        }
-*/
+  
         System.out.println("height:          " + st.height());
         System.out.println("size:            " + st.size());
         System.out.println("min key:         " + st.min());

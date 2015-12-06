@@ -1,3 +1,4 @@
+package project2_latest;
 /******************************************************************************
  *  Compilation:  javac StdRandom.java
  *  Execution:    java StdRandom

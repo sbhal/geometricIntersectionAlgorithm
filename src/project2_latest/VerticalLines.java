@@ -1,8 +1,11 @@
+package project2_latest;
 
-public class HorizontalLines {
+public class VerticalLines {
 	private final int length=25;
-	int x;
-	int y;
+
+
+	private int x;
+	private int y;
 	public int getX() {
 		return x;
 	}
@@ -18,8 +21,7 @@ public class HorizontalLines {
 	public int getLength() {
 		return length;
 	}
-	public int endPoint(int x){
-		return x+25;		
+	public int endPoint(int y){
+		return y+25;		
 	}
-	
 }

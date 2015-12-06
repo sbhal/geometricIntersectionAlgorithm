@@ -3,10 +3,10 @@ package project2_latest;
 import java.util.ArrayList;
 
 public class BruteForce {
-	static RandomLineGenerator randLineSet;
+	RandomLineGenerator randLineSet;
 
 	public BruteForce(RandomLineGenerator randLineSet){
-		BruteForce.randLineSet = randLineSet;
+		this.randLineSet = randLineSet;
 	}
 
 	public void printIntersection(){

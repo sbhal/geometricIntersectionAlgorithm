@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class HVIntersection {
-	static RandomLineGenerator randLineSet;
+	RandomLineGenerator randLineSet;
 
 	public HVIntersection(RandomLineGenerator randLineSet) {
 		super();
-		HVIntersection.randLineSet = randLineSet;
+		this.randLineSet = randLineSet;
 	}
 
 	// helper class for events in sweep line algorithm

@@ -1,11 +1,4 @@
 package project2_latest;
-/******************************************************************************
- *  Compilation:  javac Interval.java
- *  Execution:    java Interval
- *
- *  Implementation of an interval.
- *
- ******************************************************************************/
 
 public class Interval<Key extends Comparable<Key>> { 
     public final Key low;      // left endpoint

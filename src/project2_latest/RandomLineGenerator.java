@@ -6,8 +6,7 @@ import java.util.Random;
 
 public class RandomLineGenerator {
 
-	static int maxGeneratedNumber = 100;
-	static int noOfNumbers = 5;
+	static int maxGeneratedNumber = 1000000;
 	private ArrayList<HorizontalLines> horizontalLine;
 	private ArrayList<VerticalLines> verticalLine;
 
@@ -17,8 +16,6 @@ public class RandomLineGenerator {
 
 		Random rn=new Random();
 		int numHzLine=rn.nextInt(num);
-
-		//numHzLine = noOfNumbers;
 		for(int i=0;i<numHzLine;i++){
 			HorizontalLines hLine=new HorizontalLines();
 			hLine.setX(rn.nextInt(maxGeneratedNumber));

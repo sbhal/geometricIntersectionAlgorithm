@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class RandomLineGenerator {
 
-	static int maxGeneratedNumber = 1000000;
+	static int maxGeneratedNumber = 100000;
 	private ArrayList<HorizontalLines> horizontalLine;
 	private ArrayList<VerticalLines> verticalLine;
 
@@ -16,6 +16,7 @@ public class RandomLineGenerator {
 
 		Random rn=new Random();
 		int numHzLine=rn.nextInt(num);
+		numHzLine = num/2;
 		for(int i=0;i<numHzLine;i++){
 			HorizontalLines hLine=new HorizontalLines();
 			hLine.setX(rn.nextInt(maxGeneratedNumber));
@@ -55,13 +56,13 @@ public class RandomLineGenerator {
 		//s = "Horizonatal lines are :";
 		for (int i = 0; i < horizontalLine.size(); i++) {
 			HorizontalLines hline = horizontalLine.get(i);
-			SegmentHV segmentH = new SegmentHV(hline.x, hline.y, hline.x+25, hline.y);
+			SegmentHV segmentH = new SegmentHV(hline.x, hline.y, hline.x+100, hline.y);
 			s += segmentH + "\n";
 		}
 		//s += "Vertical lines are :";
 		for (int j = 0; j < verticalLine.size(); j++) {
 			VerticalLines vline = verticalLine.get(j);
-			SegmentHV segmentV = new SegmentHV(vline.getX(), vline.getY(), vline.getX(), vline.getY()+25);
+			SegmentHV segmentV = new SegmentHV(vline.getX(), vline.getY(), vline.getX(), vline.getY()+100);
 			s += segmentV + "\n";
 		}
 

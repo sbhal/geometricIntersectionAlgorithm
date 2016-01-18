@@ -1,7 +1,7 @@
 package project2_latest;
 
 public class VerticalLines {
-	private final int length=25;
+	private final int length=100;
 
 
 	private int x;
@@ -22,6 +22,6 @@ public class VerticalLines {
 		return length;
 	}
 	public int endPoint(int y){
-		return y+25;		
+		return y+100;		
 	}
 }

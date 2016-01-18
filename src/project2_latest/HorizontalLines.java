@@ -1,7 +1,7 @@
 package project2_latest;
 
 public class HorizontalLines {
-	private final int length=25;
+	private final int length=100;
 	int x;
 	int y;
 	public int getX() {
@@ -20,7 +20,7 @@ public class HorizontalLines {
 		return length;
 	}
 	public int endPoint(int x){
-		return x+25;		
+		return x+100;		
 	}
 
 }

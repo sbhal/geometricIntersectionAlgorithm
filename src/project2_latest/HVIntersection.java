@@ -1,6 +1,7 @@
 package project2_latest;
 
 import java.util.PriorityQueue;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -39,8 +40,9 @@ public class HVIntersection {
 	};
 
 	// the sweep-line algorithm
-	public void printIntersection() {
-		System.out.println("Intersection found with Sweep Line Algorithm are:");
+	public void printIntersection(boolean toPrint, PrintWriter swriter) {
+		if(toPrint)
+			System.out.println("Intersection found with Sweep Line Algorithm are:");
 		int INFINITY = Integer.MAX_VALUE;   // -INFINITY is second smallest integer
 
 		//PriorityQueue<Event> pq = new PriorityQueue<Event>(N, idComparator);
@@ -50,7 +52,7 @@ public class HVIntersection {
 		ArrayList<HorizontalLines> hline = randLineSet.getHorizontalLine();
 		for (int i = 0; i < hline.size(); i++) {
 			HorizontalLines line = hline.get(i);
-			SegmentHV segment = new SegmentHV(line.x, line.y, line.x+25, line.y);
+			SegmentHV segment = new SegmentHV(line.x, line.y, line.x+100, line.y);
 			Event e1 = new Event(segment.x1, segment);
 			Event e2 = new Event(segment.x2, segment);
 			pq.add(e1);
@@ -60,7 +62,7 @@ public class HVIntersection {
 		ArrayList<VerticalLines> vline = randLineSet.getVerticalLine();
 		for (int i = 0; i < vline.size(); i++) {
 			VerticalLines line = vline.get(i);
-			SegmentHV segment = new SegmentHV(line.getX(), line.getY(), line.getX(), line.getY()+25);
+			SegmentHV segment = new SegmentHV(line.getX(), line.getY(), line.getX(), line.getY()+100);
 			Event e = new Event(segment.x1, segment);
 			pq.add(e);
 		}
@@ -81,7 +83,8 @@ public class HVIntersection {
 				SegmentHV seg2 = new SegmentHV(+INFINITY, segment.y2, +INFINITY, segment.y2);
 				Iterable<SegmentHV> list = st.range(seg1, seg2);
 				for (SegmentHV seg : list) {
-					System.out.println("Intersection:  " + segment + " with " + seg);
+					if(toPrint)
+					swriter.println("Intersection:  " + segment + " with " + seg);
 				}
 			}
 
